@@ -5,21 +5,11 @@ import useStyles from './styles'
 import PlaceDetails from '../PlaceDetails/PlaceDetails'
 
 
-const List = () => {
+const List = ({ places }) => {
     const classes = useStyles();
     const [type, setType] = useState('restaurants');
     const [rating, setRating] = useState('');
 
-    const places = [
-        { name: 'cool place' },
-        { name: 'nice place' },
-        { name: 'neat place' },
-        { name: 'cool place' },
-        { name: 'nice place' },
-        { name: 'neat place' }
-
-
-    ]
 
     return (
         <div className={classes.container}>
@@ -43,9 +33,9 @@ const List = () => {
                     <MenuItem value={4.5}>above 4.5</MenuItem>
                 </Select>
             </FormControl>
-            <Grid cotainer spacing={3} className={classes.list}>
-                {places?.map((place, index) => (
-                    <Grid item key={index} xs={12}>
+            <Grid container spacing={3} className={classes.list}>
+                {places?.map((place, i) => (
+                    <Grid item key={i} xs={12}>
                         <PlaceDetails place={place} />
                     </Grid>
                 ))}
